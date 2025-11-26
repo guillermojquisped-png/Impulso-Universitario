@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impulso Universitario - Asesoría y Futuro. Brindamos orientación vocacional integral para jóvenes que buscan elegir su carrera profesional.">
+    <meta name="keywords" content="orientación vocacional, asesoría educativa, elegir carrera, universidad, Perú, Impulso Universitario">
+    <meta name="author" content="Impulso Universitario">
+    <title>Impulso Universitario - Asesoría y Futuro</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #2c5aa0;
+            --accent: #ff6b35;
+            --light: #f0f4f8;
+            --dark: #152642;
+            --text: #333333;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header y Navegación */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-img {
+            width: 180px;
+            height: auto;
+        }
+        
+        .logo-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Banner Principal */
+        .banner {
+            background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), url('https://source.unsplash.com/random/1600x900/?education,students') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Secciones */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Tarjetas de servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Acerca de nosotros */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        /* Learn StarUp */
+        .learn-section {
+            background-color: var(--light);
+        }
+        
+        .learn-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .learn-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .learn-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .learn-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Contacto */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background-color: #e55a2b;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .learn-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img,
+            .learn-img {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1rem 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem 0;
+            }
+            
+            .banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner {
+                padding: 5rem 1rem;
+            }
+            
+            .banner h1 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .logo-img {
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-img">
+                    <img src="Impulso-Universitario.png" alt="Impulso Universitario - Asesoría y Futuro">
+                </div>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#learn">Learn StarUp</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="banner" id="inicio">
+        <div class="container">
+            <h1>CREAMOS CONEXIONES HISTORIAS EXPERIENCIAS AUTÉNTICAS</h1>
+            <p>Ayudamos a los jóvenes a descubrir su verdadera vocación y tomar decisiones educativas informadas para construir un futuro exitoso.</p>
+            <a href="#contacto" class="btn" style="margin-top: 2rem;">Comienza tu camino</a>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nosotros</h2>
+                <p>Conoce nuestra misión, visión y el equipo que hace posible transformar vidas a través de la orientación vocacional.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra Misión</h3>
+                    <p>Brindar orientación vocacional integral y personalizada que empodere a los jóvenes para tomar decisiones educativas informadas, alineadas con sus intereses, habilidades y las oportunidades del mercado laboral.</p>
+                    
+                    <h3>Nuestra Visión</h3>
+                    <p>Ser la organización líder en orientación vocacional en Perú, reconocida por transformar la manera en que los jóvenes eligen su carrera profesional, reduciendo la deserción universitaria y fortaleciendo el desarrollo del capital humano del país.</p>
+                    
+                    <h3>Sostenibilidad</h3>
+                    <p>Creemos en un modelo de negocio sostenible que genere valor social, económico y ambiental. Trabajamos con ética, transparencia y compromiso con el desarrollo de las futuras generaciones.</p>
+                    
+                    <h3>Nuestro Equipo</h3>
+                    <p>Contamos con un equipo multidisciplinario de orientadores vocacionales, psicólogos educativos y asesores académicos con amplia experiencia en el sector educativo peruano.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://source.unsplash.com/random/600x400/?team,office" alt="Nuestro equipo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Proyectos</h2>
+                <p>Descubre nuestros programas y servicios diseñados para guiar a los estudiantes en su camino hacia una carrera profesional satisfactoria.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://source.unsplash.com/random/600x400/?orientation,counseling');"></div>
+                    <div class="project-content">
+                        <h3>Orientación Vocacional Personalizada</h3>
+                        <p>Sesiones individuales con expertos para descubrir intereses, habilidades y opciones de carrera alineadas con la personalidad de cada estudiante.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://source.unsplash.com/random/600x400/?workshop,education');"></div>
+                    <div class="project-content">
+                        <h3>Talleres para Colegios</h3>
+                        <p>Programas grupales diseñados para instituciones educativas que buscan fortalecer sus servicios de orientación vocacional.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://source.unsplash.com/random/600x400/?parents,meeting');"></div>
+                    <div class="project-content">
+                        <h3>Asesoría Familiar</h3>
+                        <p>Sesiones de orientación para padres que desean apoyar efectivamente a sus hijos en la elección de carrera profesional.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Learn StarUp -->
+    <section id="learn" class="learn-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Learn StarUp</h2>
+                <p>Nuestro programa insignia que combina orientación vocacional con metodologías innovadoras para el éxito educativo.</p>
+            </div>
+            <div class="learn-content">
+                <div class="learn-img">
+                    <img src="https://source.unsplash.com/random/600x400/?startup,innovation" alt="Learn StarUp">
+                </div>
+                <div class="learn-text">
+                    <h3>Transformando la Orientación Educativa</h3>
+                    <p>Learn StarUp es nuestro programa integral que aplica metodologías ágiles y de emprendimiento al proceso de orientación vocacional, preparando a los estudiantes para los desafíos del siglo XXI.</p>
+                    
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li>Evaluación integral de intereses, habilidades y personalidad</li>
+                        <li>Mentoría con profesionales de diferentes áreas</li>
+                        <li>Talleres de habilidades blandas y competencias digitales</li>
+                        <li>Acompañamiento durante todo el proceso de postulación</li>
+                        <li>Seguimiento durante el primer año universitario</li>
+                    </ul>
+                    
+                    <h3>Resultados Esperados</h3>
+                    <p>Los participantes del programa Learn StarUp toman decisiones más informadas, experimentan menor ansiedad durante el proceso de elección y tienen mayores probabilidades de éxito en sus estudios superiores.</p>
+                    
+                    <a href="#contacto" class="btn">Solicitar información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>¿Tienes preguntas o necesitas más información? No dudes en contactarnos.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Principal 123, Lima, Perú</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+51 987 654 321</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@impulsouniversitario.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 9:00 am - 6:00 pm</p>
+                            <p>Sábados: 9:00 am - 1:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="form-contacto">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-img">
+                        <img src="Impulso-Universitario.png" alt="Impulso Universitario - Asesoría y Futuro" style="filter: brightness(0) invert(1); max-width: 180px;">
+                    </div>
+                    <p style="margin-top: 1rem;">Transformando la manera en que los jóvenes eligen su futuro profesional a través de orientación personalizada y acompañamiento integral.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#learn">Learn StarUp</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Orientación Vocacional</a></li>
+                        <li><a href="#">Talleres para Colegios</a></li>
+                        <li><a href="#">Asesoría Familiar</a></li>
+                        <li><a href="#">Programa Learn StarUp</a></li>
+                        <li><a href="#">Seguimiento Universitario</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Redes Sociales</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Impulso Universitario. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil después de hacer clic
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+        
+        // Formulario de contacto
+        document.getElementById('form-contacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+        
+        // Animación al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(30, 58, 95, 0.95)';
+            } else {
+                header.style.backgroundColor = 'var(--primary)';
+            }
+        });
+    </script>
+</body>
+</html>
