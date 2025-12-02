@@ -65,7 +65,39 @@
             height: auto;
         }
         
-        .logo-img img {
+        /* Estilos mejorados para el logo en el Header */
+        .header-content .logo-img {
+            background-color: white;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .header-content .logo-img:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .header-content .logo-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Estilos para el logo en el Footer - Manteniendo colores originales */
+        .footer-column .logo-img {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 180px;
+        }
+
+        .footer-column .logo-img img {
+            /* Mantenemos los colores originales del logo */
             width: 100%;
             height: auto;
             display: block;
@@ -457,8 +489,9 @@
                 font-size: 2rem;
             }
             
-            .logo-img {
+            .header-content .logo-img {
                 width: 150px;
+                padding: 8px;
             }
         }
         
@@ -475,8 +508,9 @@
                 padding: 3rem 0;
             }
             
-            .logo-img {
+            .header-content .logo-img {
                 width: 130px;
+                padding: 6px;
             }
         }
     </style>
@@ -565,7 +599,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551836026-d5c2c3af8d77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                     <div class="project-content">
                         <h3>Asesoría Familiar</h3>
                         <p>Sesiones de orientación para padres que desean apoyar efectivamente a sus hijos en la elección de carrera profesional.</p>
@@ -679,7 +713,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="logo-img">
-                        <img src="Impulso Universitario.png" alt="Impulso Universitario - Asesoría y Futuro" style="filter: brightness(0) invert(1); max-width: 180px;">
+                        <img src="Impulso Universitario.png" alt="Impulso Universitario - Asesoría y Futuro">
                     </div>
                     <p style="margin-top: 1rem;">Transformando la manera en que los jóvenes eligen su futuro profesional a través de orientación personalizada y acompañamiento integral.</p>
                 </div>
